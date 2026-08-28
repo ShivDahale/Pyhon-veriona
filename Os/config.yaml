@@ -1,0 +1,55 @@
+# ==============================================================================
+#                      V.E.R.O.N.I.C.A. CONFIGURATION
+# ==============================================================================
+
+system:
+  name: "VERONICA"
+  version: "1.0.0"
+  log_level: "INFO"
+
+# Telemetry & Health Monitoring
+telemetry:
+  update_interval_sec: 2
+  thresholds:
+    cpu_warning_pct: 80.0
+    cpu_critical_pct: 95.0
+    ram_warning_pct: 85.0
+    ram_critical_pct: 95.0
+    disk_warning_pct: 90.0
+    disk_critical_pct: 98.0
+  auto_contingencies:
+    enabled: true
+    auto_alert: true
+    auto_cool_down: false  # Auto-throttle top CPU process if critical
+
+# Voice & Neural Speech (Edge-TTS)
+voice:
+  enabled: true
+  voice_name: "en-GB-SoniaNeural" # Options: en-US-GuyNeural, en-GB-RyanNeural, en-US-AriaNeural
+  rate: "+0%"
+  volume: "+0%"
+  pitch: "+0Hz"
+
+# AI Reasoning Brain
+brain:
+  default_provider: "auto" # "gemini", "openai", or "auto"
+  model_name: "gemini-2.0-flash"
+  temperature: 0.2
+  system_prompt: |
+    You are V.E.R.O.N.I.C.A., an advanced AI tactical operating system and contingency manager.
+    You assist the user with system diagnostics, automated task execution, process management, and OS operations.
+    Speak crisply, professionally, and decisively in a tech-savvy tactical assistant persona.
+
+# OS Automation & Safety Guardrails
+os_controller:
+  safe_mode: true
+  execution_timeout_sec: 15
+  allowed_app_shortcuts:
+    browser: "https://www.google.com"
+    terminal: "cmd.exe"
+    powershell: "powershell.exe"
+    notepad: "notepad.exe"
+    calculator: "calc.exe"
+    explorer: "explorer.exe"
+    taskmanager: "taskmgr.exe"
+    vscode: "code"
